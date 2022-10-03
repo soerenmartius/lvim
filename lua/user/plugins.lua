@@ -680,6 +680,31 @@ M.config = function()
       event = { "BufRead", "BufNew" },
       disable = not lvim.builtin.python_programming.active,
     },
+    {
+      "Mofiqul/dracula.nvim",
+    },
+    { "f-person/git-blame.nvim", event = "BufRead", disable = false },
+    { "romgrk/nvim-treesitter-context", event = "BufRead", disable = false },
+    { "windwp/nvim-ts-autotag", event = "BufRead", disable = false },
+    { "nvim-treesitter/playground", event = "BufRead", disable = false },
+    { "p00f/nvim-ts-rainbow", event = "BufRead", disable = false },
+    {
+      "nacro90/numb.nvim",
+      event = "BufRead",
+      config = function()
+        require("numb").setup {
+          show_numbers = true, -- Enable 'number' for the window while peeking
+          show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+        }
+      end,
+      disable = false,
+    },
+    {
+      "ur4ltz/surround.nvim",
+      config = function()
+        require("surround").setup { mappings_style = "sandwich" }
+      end,
+    },
     -- TODO: set this up when https://github.com/neovim/neovim/pull/20130 is merged
     -- {
     --   "lvimuser/lsp-inlayhints.nvim",

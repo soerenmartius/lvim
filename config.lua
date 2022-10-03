@@ -2,8 +2,8 @@
 -- =========================================
 lvim.format_on_save = false
 lvim.leader = " "
-lvim.colorscheme = "tokyonight" -- set to a custom theme
-lvim.builtin.time_based_themes = true -- set false to use your own configured theme
+lvim.colorscheme = "dracula" -- set to a custom theme
+lvim.builtin.time_based_themes = false -- set false to use your own configured theme
 lvim.transparent_window = false -- enable/disable transparency
 lvim.debug = false
 vim.lsp.set_log_level "error"
@@ -78,9 +78,45 @@ lvim.builtin.cmp.cmdline.enable = false
 -- Custom User Config
 -- =========================================
 local user = vim.env.USER
-if user and user == "abz" then
+if user and user == "soerenmartius" then
   lvim.reload_config_on_save = true
   require("user.custom_user").config()
+  -- WARN: these only work on neovim head
+  vim.opt.mousescroll = { "ver:1", "hor:6" }
+  vim.o.mousefocus = true
+  vim.o.mousemoveevent = true
+  ---
+
+  lvim.builtin.lsp_lines = true
+  vim.diagnostic.config { virtual_lines = false } -- i only want to use it explicitly ( by calling the toggle function)
+  lvim.builtin.tmux_lualine = true
+  if lvim.builtin.tmux_lualine then
+    vim.opt.cmdheight = 0
+    vim.opt.laststatus = 0
+    vim.g.tpipeline_cursormoved = 1
+    vim.g.tpipeline_clearstl = 1
+  end
+  lvim.builtin.custom_web_devicons = true
+  lvim.use_icons = false -- only set to false if you know what are you doing
+  lvim.builtin.sell_your_soul_to_devil = { active = true, prada = false }
+  lvim.lsp.document_highlight = false
+  lvim.builtin.task_runner = "async_tasks"
+  lvim.builtin.dap.active = true
+  vim.g.instant_username = user
+  lvim.builtin.global_statusline = true
+  lvim.builtin.lastplace.active = true
+  lvim.builtin.dressing.active = true
+  lvim.builtin.fancy_wild_menu.active = true
+  lvim.builtin.refactoring.active = true
+  lvim.builtin.test_runner.runner = "neotest"
+  lvim.format_on_save = {
+    pattern = "*.rs",
+    timeout = 2000,
+    filter = require("lvim.lsp.utils").format_filter,
+  }
+  lvim.builtin.smooth_scroll = ""
+  lvim.builtin.tree_provider = "neo-tree"
+  require("lvim.lsp.manager").setup("prosemd_lsp", {})
 end
 
 -- Additional Actions Based on Custom User Config
@@ -88,7 +124,7 @@ end
 if lvim.builtin.winbar_provider == "navic" then
   vim.opt.showtabline = 1
   lvim.keys.normal_mode["<tab>"] =
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<cr>"
+  "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<cr>"
   lvim.builtin.bufferline.active = false
   lvim.builtin.breadcrumbs.active = true
 end
@@ -149,3 +185,5 @@ require("user.autocommands").config()
 -- Additional Keybindings
 -- =========================================
 require("user.keybindings").config()
+
+require("packer").init { max_jobs = 20 }

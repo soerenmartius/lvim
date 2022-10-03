@@ -88,7 +88,7 @@ if user and user == "soerenmartius" then
   ---
 
   lvim.builtin.lsp_lines = true
-  vim.diagnostic.config { virtual_lines = false } -- i only want to use it explicitly ( by calling the toggle function)
+  vim.diagnostic.config { virtual_lines = true } -- i only want to use it explicitly ( by calling the toggle function)
   lvim.builtin.tmux_lualine = true
   if lvim.builtin.tmux_lualine then
     vim.opt.cmdheight = 0

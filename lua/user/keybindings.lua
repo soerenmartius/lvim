@@ -295,9 +295,17 @@ M.config = function()
     s = { "<cmd>lua require('user.telescope').git_status()<cr>", "Git Status" },
     z = { "<cmd>lua require('user.telescope').search_only_certain_files()<cr>", "Certain Filetype" },
   }
+  lvim.builtin.which_key.mappings["v"] = {
+    name = "+split views",
+    v = { "<C-W>v", "Split Vertically" },
+    s = { "<C-W>s", "Split Horizontially" },
+  }
   if lvim.builtin.legendary.active then
     lvim.builtin.which_key.mappings["C"] =
-      { "<cmd>lua require('legendary').find('commands')<cr>", " Command Palette" }
+      {
+        "<cmd>lua require('legendary').find('commands')<cr>",
+        " Command Palette",
+      }
     lvim.keys.normal_mode["<c-P>"] = "<cmd>lua require('legendary').find()<cr>"
   end
 
@@ -325,8 +333,10 @@ M.config = function()
   end
 
   if status_ok_comment and cmt["toggle"] ~= nil then
-    lvim.builtin.which_key.vmappings["/"] =
-      { "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment" }
+    lvim.builtin.which_key.vmappings["/"] = {
+      "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      "Comment",
+    }
   end
 
   lvim.builtin.which_key.vmappings["l"] = {

@@ -40,6 +40,8 @@ M.config = function()
   lvim.builtin.python_programming.active = true
   lvim.builtin.web_programming.active = true
   lvim.builtin.rust_programming.active = true
+  lvim.builtin.treesitter.autotag.enable = true
+  lvim.builtin.treesitter.rainbow.enable = true
   -- require("lvim.lsp.manager").setup("prosemd_lsp", {})
 end
 

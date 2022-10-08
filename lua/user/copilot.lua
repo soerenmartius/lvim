@@ -19,6 +19,7 @@ M.config = function()
     javascriptreact = true,
     typescriptreact = true,
     terraform = true,
+    vue = true,
   }
 end
 

@@ -36,6 +36,7 @@ M.config = function()
     "algorithm:minimal",
   }
   vim.opt.wrap = true
+	vim.opt.colorcolumn = "80,120"
   vim.opt.termguicolors = true
   vim.opt.updatetime = 100
   vim.opt.timeoutlen = 250

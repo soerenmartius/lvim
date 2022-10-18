@@ -33,7 +33,7 @@ M.config = function()
     timeout = 2000,
     filter = require("lvim.lsp.utils").format_filter,
   }
-  lvim.builtin.smooth_scroll = "cinnamon"
+  lvim.builtin.smooth_scroll = ""
   lvim.builtin.tree_provider = "neo-tree"
   lvim.builtin.noice.active = true
   lvim.builtin.go_programming.active = true

@@ -70,6 +70,15 @@ M.config = function()
   --     autocmd BufReadPre,FileReadPre * if getfsize(expand("%")) > 1024 * 1024 | exec DisableSyntaxTreesitter() | endif
   -- augroup END
   --   ]]
+  -- TODO: HACK FOR TEMPORARY PROBLEM
+  create_aucmd("BufWinEnter", {
+    group = "_lvim_user",
+    pattern = "*",
+    desc = "expandtab",
+    callback = function()
+      vim.cmd [[set expandtab]]
+    end,
+  })
   create_aucmd("BufWinEnter", {
     group = "_lvim_user",
     pattern = "*.md",

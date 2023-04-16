@@ -118,11 +118,11 @@ M.config = function()
   }
 
   local section = {
-    header = header,
+    -- header = header,
     buttons = buttons,
     plugin_count = plugin_count,
     heading = heading,
-    footer = footer,
+    -- footer = footer,
   }
 
   local opts = {

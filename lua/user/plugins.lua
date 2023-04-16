@@ -773,6 +773,89 @@ M.config = function()
       event = "VeryLazy",
       enabled = lvim.builtin.mind.active,
     },
+    {
+      "f-person/git-blame.nvim",
+      event = "BufRead",
+      config = function()
+        vim.cmd "highlight default link gitblame SpecialComment"
+        vim.g.gitblame_enabled = 0
+      end,
+    },
+    {
+      "ruifm/gitlinker.nvim",
+      event = "BufRead",
+      config = function()
+        require("gitlinker").setup {
+          opts = {
+            -- remote = 'github', -- force the use of a specific remote
+            -- adds current line nr in the url for normal mode
+            add_current_line_on_normal_mode = true,
+            -- callback for what to do with the url
+            action_callback = require("gitlinker.actions").open_in_browser,
+            -- print the url after performing the action
+            print_url = false,
+            -- mapping to call url generation
+            mappings = "<leader>gy",
+          },
+        }
+      end,
+      requires = "nvim-lua/plenary.nvim",
+    },
+    {
+      "windwp/nvim-ts-autotag",
+      config = function()
+        require("nvim-ts-autotag").setup()
+      end,
+    },
+    {
+      "Mofiqul/dracula.nvim",
+    },
+    {
+      "romgrk/nvim-treesitter-context",
+      config = function()
+        require("treesitter-context").setup {
+          enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+          throttle = true, -- Throttles plugin updates (may improve performance)
+          max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+          patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+            -- For all filetypes
+            -- Note that setting an entry here replaces all other patterns for this entry.
+            -- By setting the 'default' entry below, you can control which nodes you want to
+            -- appear in the context window.
+            default = {
+              "class",
+              "function",
+              "method",
+            },
+          },
+        }
+      end,
+    },
+    { "nvim-treesitter/playground", event = "BufRead", enabled = true },
+    { "p00f/nvim-ts-rainbow", event = "BufRead", enabled = true },
+    {
+      "folke/lsp-colors.nvim",
+      event = "BufRead",
+    },
+    {
+      "nacro90/numb.nvim",
+      event = "BufRead",
+      config = function()
+        require("numb").setup {
+          show_numbers = true, -- Enable 'number' for the window while peeking
+          show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+        }
+      end,
+      enabled = true,
+    },
+    {
+      "ur4ltz/surround.nvim",
+      config = function()
+        require("surround").setup { mappings_style = "sandwich" }
+      end,
+      enabled = true,
+    },
+    { "mzlogin/vim-markdown-toc" },
   }
 end
 

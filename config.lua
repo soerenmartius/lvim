@@ -1,7 +1,7 @@
 -- Neovim
 -- =========================================
 lvim.leader = " "
-lvim.colorscheme = "tokyonight" -- set to a custom theme
+lvim.colorscheme = "dracula" -- set to a custom theme
 lvim.builtin.time_based_themes = true -- set false to use your own configured theme
 lvim.transparent_window = false -- enable/disable transparency
 lvim.debug = false
@@ -70,15 +70,17 @@ lvim.builtin.cmp.cmdline.enable = false
 lvim.builtin.borderless_cmp = false
 lvim.builtin.colored_args = false -- if true then sets up hlargs.nvim
 lvim.builtin.bigfile.active = true
+-- lvim.builtin.bigfile.active = true
+lvim.builtin.inlay_hints = { active = false } -- enable/disable inlay hints
 -- WARN: mind plugin is deprecated ( use with caution )
 lvim.builtin.mind = { active = false, root_path = "~/.mind" } -- enable/disable mind.nvim
 
 -- Custom User Config
 -- =========================================
 local user = vim.env.USER
-if user and user == "abz" then
+if user and user == "soerenmartius" then
   lvim.reload_config_on_save = true
-  require("user.custom_user").config()
+  require("user.custom_soerenmartius").config()
 end
 
 -- Additional Actions Based on Custom User Config

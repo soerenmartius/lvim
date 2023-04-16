@@ -6,6 +6,8 @@ M.config = function()
     bufname_exclude = { "README.md" },
     buftype_exclude = { "terminal", "nofile" },
     filetype_exclude = {
+      "hcl",
+      "astro",
       "alpha",
       "log",
       "gitcommit",

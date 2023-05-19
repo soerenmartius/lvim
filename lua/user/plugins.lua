@@ -805,7 +805,7 @@ M.config = function()
           },
         }
       end,
-      requires = "nvim-lua/plenary.nvim",
+      dependencies = "nvim-lua/plenary.nvim",
     },
     {
       "windwp/nvim-ts-autotag",

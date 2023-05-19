@@ -1,7 +1,8 @@
 local M = {}
 
 M.config = function()
-  lvim.colorscheme = "dracula" -- set to a custom theme
+  -- lvim.colorscheme = "dracula" -- set to a custom theme
+  lvim.builtin.alpha.active = false -- disable dashboard
   lvim.builtin.time_based_themes = false -- set false to use your own configured theme
   lvim.builtin.which_key.mappings["v"] = {
     name = "+split views",
@@ -26,7 +27,7 @@ M.config = function()
       vim.cmd [[ autocmd WinEnter,BufEnter,VimResized * setlocal laststatus=0 ]]
     end
   end
-	lvim.lsp.installer.setup.automatic_installation = true
+	lvim.lsp.installer.setup.automatic_installation = false
   lvim.builtin.custom_web_devicons = true
   lvim.use_icons = false -- only set to false if you know what are you doing
   lvim.builtin.sell_your_soul_to_devil = { active = true, prada = false }
@@ -64,7 +65,6 @@ M.config = function()
 	lvim.builtin.treesitter.indent.enable = true
   lvim.builtin.treesitter.autotag.enable = true
   lvim.builtin.treesitter.rainbow.enable = true
-  lvim.builtin.editorconfig.active = false
   lvim.builtin.lastplace.active = true
   lvim.builtin.fancy_wild_menu.active = true
   lvim.builtin.nonumber_unfocus = true

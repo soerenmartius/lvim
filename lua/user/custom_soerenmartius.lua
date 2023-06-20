@@ -4,7 +4,7 @@ M.config = function()
   -- lvim.colorscheme = "dracula" -- set to a custom theme
   lvim.builtin.alpha.active = false -- disable dashboard
   lvim.builtin.time_based_themes = false -- set false to use your own configured theme
-  lvim.builtin.which_key.mappings["v"] = {
+  lvim.builtin.which_key.mappings["V"] = {
     name = "+split views",
     v = { "<C-W>v", "Split Vertically" },
     s = { "<C-W>s", "Split Horizontially" },
@@ -61,6 +61,7 @@ M.config = function()
 
   -- Custom soeren
   vim.opt.colorcolumn = "80,120"
+
 	-- lvim.builtin.treesitter.indent = { enable = true, disable = { "hcl" } }
 	lvim.builtin.treesitter.indent.enable = true
   lvim.builtin.treesitter.autotag.enable = true
@@ -71,13 +72,21 @@ M.config = function()
   lvim.builtin.hlslens.active = true
   lvim.builtin.file_browser.active = true
   lvim.builtin.noice.active = true
-  lvim.builtin.web_programming.active = true
-  lvim.builtin.nvimtree.setup.view.width = 60
 
   local linters = require "lvim.lsp.null-ls.linters"
   linters.setup {
-    { command = "eslint_d", filetypes = { "javascript", "typescript", "typescriptreact", "astro", "vue" } },
+    {
+      command = "eslint",
+      filetypes = {
+        "javascript",
+        "typescript",
+        "typescriptreact",
+        "astro",
+        "vue"
+      }
+    },
   }
+
   local formatters = require "lvim.lsp.null-ls.formatters"
   formatters.setup {
     {

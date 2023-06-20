@@ -278,15 +278,14 @@ M.config = function()
   end
 
   lvim.lsp.buffer_mappings.normal_mode["ga"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" }
-  lvim.lsp.buffer_mappings.normal_mode["gI"] = {
-    "<cmd>lua require('user.telescope').lsp_implementations()<CR>",
-    "Goto Implementation",
-  }
   lvim.lsp.buffer_mappings.normal_mode["gA"] = {
     "<cmd>lua if vim.bo.filetype == 'rust' then vim.cmd[[RustHoverActions]] else vim.lsp.codelens.run() end<CR>",
     "CodeLens Action",
   }
   lvim.lsp.buffer_mappings.normal_mode["gt"] = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" }
+  lvim.lsp.buffer_mappings.normal_mode["gr"] = { "<cmd>Trouble lsp_references<CR>", "Goto References" }
+  lvim.lsp.buffer_mappings.normal_mode["gd"] = { "<cmd>Trouble lsp_definitions<CR>", "Goto Definition" }
+  lvim.lsp.buffer_mappings.normal_mode["gI"] = { "<cmd>Trouble lsp_implementations<CR>", "Goto Implementation" }
   lvim.lsp.buffer_mappings.normal_mode["gp"] = {
     function()
       require("user.peek").Peek "definition"
@@ -348,7 +347,7 @@ M.config = function()
   }
   if lvim.builtin.tree_provider == "nvimtree" then
     lvim.builtin.nvimtree.on_config_done = function(_)
-      lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<CR>", " Explorer" }
+      lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<CR>", "󰀶 Explorer" }
     end
   end
   -- lvim.builtin.nvimtree.hide_dotfiles = 0
@@ -689,11 +688,11 @@ M.codes = {
     "ovl_no_viable_function_in_call",
   },
   different_requires = {
-    message = " Buddy you've imported this before, with the same name",
+    message = " Buddy you've imported this before, with the same name",
     "different-requires",
   },
   empty_block = {
-    message = " That shouldn't be empty here",
+    message = " That shouldn't be empty here",
     "empty-block",
   },
   missing_symbol = {
@@ -707,7 +706,7 @@ M.codes = {
     "invalid_token_after_toplevel_declarator",
   },
   redefinition = {
-    message = " That variable was defined before",
+    message = " That variable was defined before",
     "redefinition",
     "redefined-local",
   },
@@ -722,11 +721,11 @@ M.codes = {
     "trailing-space",
   },
   unused_variable = {
-    message = " Don't define variables you don't use",
+    message = " Don't define variables you don't use",
     "unused-local",
   },
   unused_function = {
-    message = " Don't define functions you don't use",
+    message = " Don't define functions you don't use",
     "unused-function",
   },
   useless_symbols = {
@@ -734,7 +733,7 @@ M.codes = {
     "unknown-symbol",
   },
   wrong_type = {
-    message = " Try to use the correct types",
+    message = " Try to use the correct types",
     "init_conversion_failed",
   },
   undeclared_variable = {

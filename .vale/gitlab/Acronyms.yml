@@ -24,6 +24,7 @@ exceptions:
   - ARN
   - ARP
   - ASCII
+  - ASLR
   - ASN
   - AWS
   - BAR
@@ -31,13 +32,17 @@ exceptions:
   - BSD
   - CAS
   - CASMM
+  - CAM
   - CDN
+  - CET
+  - CFG
   - CIS
   - CLI
   - CMD
   - CNA
   - CNAME
   - CNI
+  - COM
   - CONOP
   - CORE
   - CORS
@@ -56,6 +61,7 @@ exceptions:
   - DAG
   - DAST
   - DDOS
+  - DEP
   - DHCP
   - DHT
   - DLL
@@ -106,16 +112,20 @@ exceptions:
   - HTML
   - HTTP
   - HTTPS
+  - HVCI
   - IAM
   - IANA
+  - IAT
   - IBM
   - ICMP
+  - IDA
   - IDE
   - IDOR
   - IID
   - IMAP
   - IOPS
   - IRC
+  - IRQL
   - ISAC
   - ISN
   - ISO
@@ -134,6 +144,7 @@ exceptions:
   - LSP
   - LTS
   - LUKS
+  - MAC
   - MBR
   - MFA
   - MIME
@@ -158,6 +169,8 @@ exceptions:
   - PCI
   - PCI-DSS
   - PDF
+  - PID
+  - PEB
   - PEM
   - PEP
   - PGP
@@ -166,9 +179,11 @@ exceptions:
   - POSIX
   - POST
   - PPP
+  - PTE
   - PUT
   - QEMU
   - QMP
+  - QUIC
   - RAID
   - RAM
   - RBAC
@@ -179,11 +194,14 @@ exceptions:
   - RFC
   - RFI
   - RHEL
+  - ROM
+  - ROP
   - RPC
   - RPM
   - RPS
   - RSA
   - RSS
+  - RST
   - RVM
   - SAAS
   - SAML
@@ -196,6 +214,7 @@ exceptions:
   - SCSS
   - SDK
   - SDN
+  - SEH
   - SELF
   - SEO
   - SET
@@ -204,6 +223,7 @@ exceptions:
   - SIEM
   - SLA
   - SLSA
+  - SMB
   - SMS
   - SMTP
   - SOAP
@@ -226,6 +246,7 @@ exceptions:
   - SVN
   - SYN
   - TBA
+  - TBD
   - TCP
   - TEE
   - TIFF
@@ -246,6 +267,7 @@ exceptions:
   - UTF
   - UUID
   - VCS
+  - VLAN
   - VNC
   - VPC
   - VPN
